@@ -10,6 +10,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), 'saliency'))
 from infer import MLNet, preprocess_image
 
 # Model setup
+# Download from: https://www.dropbox.com/scl/fi/utbq5gbj00v91x9ism08n/2025-12-06-13_46_08.165973_saliency.model?rlkey=froypvw8evfhf5hz7pyo2o6mn&st=dg9gkqud&dl=0
 MODEL_PATH = "/Users/eunicechoi04/Downloads/videoabr/src/video_processing/saliency/2025-12-06 13_46_08.165973_saliency.model"
 SHAPE_R = 240
 SHAPE_C = 320

@@ -1,3 +1,4 @@
 # Dataset
 data/360dataset/*
 data/videos/*
+*/__init__.py
