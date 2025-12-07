@@ -7,6 +7,9 @@ from scipy.spatial.transform import Rotation as R
 # ==========================================
 # 1. CORE PROCESSING LOGIC
 # ==========================================
+# ==========================================
+# 1. CORE PROCESSING LOGIC (Updated with Velocity and Tile ID)
+# ==========================================
 def process_single_file(input_path, output_path):
     try:
         # Load space-separated data
@@ -22,7 +25,7 @@ def process_single_file(input_path, output_path):
         raw_quats = df[['qx', 'qy', 'qz', 'qw']].to_numpy()
         raw_times = df['timestamp'].to_numpy()
 
-        # 100Hz Resampling (Flare Paper)
+        # --- 100Hz Resampling (Flare Paper Method) ---
         TARGET_FREQ = 100
         rotations = R.from_quat(raw_quats)
         slerp = Slerp(raw_times, rotations)
@@ -31,18 +34,61 @@ def process_single_file(input_path, output_path):
         target_times = np.arange(0, max_time, 1/TARGET_FREQ)
         interp_rots = slerp(target_times)
 
-        # Lat/Lon Conversion
+        # --- Lat/Lon Conversion ---
         euler_angles = interp_rots.as_euler('yxz', degrees=False)
         yaw_long = euler_angles[:, 0]
         pitch_lat = euler_angles[:, 1]
-
-        # Save
-        processed_df = pd.DataFrame({
+        
+        # ------------------------------------------------------------------
+        # NEW FEATURE EXTRACTION CODE GOES HERE
+        # ------------------------------------------------------------------
+        
+        # 1. Calculate Angular Velocity (radians/s)
+        
+        # Create a temporary DataFrame for easier calculation of differences
+        temp_df = pd.DataFrame({
             'timestamp': target_times,
             'latitude_rad': pitch_lat,
-            'longitude_rad': yaw_long,
-            'latitude_deg': np.degrees(pitch_lat),
-            'longitude_deg': np.degrees(yaw_long)
+            'longitude_rad': yaw_long
+        })
+        
+        # Calculate change in time (dt) and change in position (d_lat, d_lon)
+        # fillna(0) for the first row where diff is NaN
+        temp_df['dt'] = temp_df['timestamp'].diff().fillna(0.01) 
+        temp_df['delta_lat'] = temp_df['latitude_rad'].diff().fillna(0)
+        temp_df['delta_lon'] = temp_df['longitude_rad'].diff().fillna(0)
+        
+        # Angular Velocity (change in angle / change in time)
+        temp_df['velocity_lat'] = temp_df['delta_lat'] / temp_df['dt']
+        temp_df['velocity_lon'] = temp_df['delta_lon'] / temp_df['dt']
+        
+        # 2. Map to Tiles (Assuming a 4x6 grid, common in literature)
+        
+        rows = 4
+        cols = 6
+        
+        # Normalize latitude (-pi/2 to pi/2) to a 0-to-rows range
+        temp_df['tile_row'] = np.floor((temp_df['latitude_rad'] + np.pi/2) / (np.pi / rows)).astype(int).clip(0, rows-1)
+        # Normalize longitude (-pi to pi) to a 0-to-cols range
+        temp_df['tile_col'] = np.floor((temp_df['longitude_rad'] + np.pi) / (2*np.pi / cols)).astype(int).clip(0, cols-1)
+        
+        # Create a single Tile ID
+        temp_df['tile_id'] = temp_df['tile_row'] * cols + temp_df['tile_col']
+
+        # ------------------------------------------------------------------
+        
+        # Create final output DataFrame using all columns from temp_df
+        processed_df = pd.DataFrame({
+            'timestamp': temp_df['timestamp'],
+            'latitude_rad': temp_df['latitude_rad'],
+            'longitude_rad': temp_df['longitude_rad'],
+            'latitude_deg': np.degrees(temp_df['latitude_rad']),
+            'longitude_deg': np.degrees(temp_df['longitude_rad']),
+            'velocity_lat': temp_df['velocity_lat'],
+            'velocity_lon': temp_df['velocity_lon'],
+            'tile_row': temp_df['tile_row'],
+            'tile_col': temp_df['tile_col'],
+            'tile_id': temp_df['tile_id']
         })
 
         processed_df.to_csv(output_path, index=False)
