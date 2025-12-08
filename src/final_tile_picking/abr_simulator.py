@@ -1,100 +1,99 @@
 import pandas as pd
 import numpy as np
-import json
+from sklearn.linear_model import LinearRegression
 
-# --- CONFIGURATION ---
+# ==========================================
+# CONFIGURATION
+# ==========================================
+# ASK PARTNER FOR THESE NUMBERS LATER
+BITRATE_LOW_KBPS = 500    # Background quality
+BITRATE_HIGH_KBPS = 5000  # Viewport quality
+
 TILE_ROWS = 4
 TILE_COLS = 6
 TOTAL_TILES = 24
-SEGMENT_DURATION = 1.0  # seconds
+HISTORY_WINDOW = 0.5
+PREDICTION_WINDOW = 1.0
 
-# Bitrates in Kilobits per second (Kbps)
-BITRATE_LOW = 500
-BITRATE_HIGH = 5000 
+def get_tile_id(lat, lon):
+    row = int(np.floor((np.clip(lat, -1.57, 1.57) + 1.57) / (3.14 / TILE_ROWS)))
+    col = int(np.floor(((lon + 3.14) % 6.28) - 3.14 + 3.14) / (6.28 / TILE_COLS))
+    return max(0, min(row, 3)) * TILE_COLS + max(0, min(col, 5))
 
-def get_predicted_tiles(current_time, history_df):
-    """
-    Your Linear Regression Logic goes here.
-    For now, we can use a placeholder: 'Last Known Position' (Static Prediction)
-    if you haven't wrapped your LR logic into a function yet.
-    """
-    # 1. Get data up to current_time
-    past_data = history_df[history_df['timestamp'] <= current_time]
-    if past_data.empty:
-        return [0] # Default to tile 0 if no data
+def predict_future_tile(current_time, history_df):
+    """Real Linear Regression Prediction"""
+    # Get recent history
+    mask = (history_df['timestamp'] >= current_time - HISTORY_WINDOW) & \
+           (history_df['timestamp'] <= current_time)
+    subset = history_df[mask]
     
-    # 2. Get last known tile (Static Prediction is a good baseline)
-    last_row = past_data.iloc[-1]
-    center_tile = int(last_row['tile_id'])
+    if len(subset) < 5:
+        return None # Not enough data
+        
+    # Fit Line
+    X = subset['timestamp'].values.reshape(-1, 1)
+    model_lat = LinearRegression().fit(X, subset['latitude_rad'].values)
+    model_lon = LinearRegression().fit(X, subset['longitude_rad'].values)
     
-    # 3. Add neighbors (Margin of Error)
-    # A simple 3x3 grid around the center tile
-    predicted_tiles = {center_tile}
+    # Predict Future
+    future_time = np.array([[current_time + PREDICTION_WINDOW]])
+    p_lat = model_lat.predict(future_time)[0]
+    p_lon = model_lon.predict(future_time)[0]
     
-    # Logic to add adjacent tiles would go here
-    # For simulation simplicity, let's assume we fetch 4 tiles (Viewport area)
-    return list(predicted_tiles)
+    return get_tile_id(p_lat, p_lon)
 
-def run_simulation(user_trace_file, network_trace_mbps):
-    print(f"Simulating: {user_trace_file}")
-    df = pd.read_csv(user_trace_file)
+def run_simulation(user_trace_path):
+    print(f"Simulating ABR for: {user_trace_path}...")
+    df = pd.read_csv(user_trace_path)
     
-    # Simulation State
-    buffer_level = 0.0
-    total_bits_downloaded = 0
-    total_stall_time = 0.0
-    video_duration = df['timestamp'].max()
+    # Network Trace (Simulating fluctuating 4G: 3Mbps to 15Mbps)
+    network_trace = [3, 5, 8, 12, 15, 12, 8, 4] # Mbps
     
-    # Iterate through video segments (0s, 1s, 2s...)
-    for t in np.arange(0, video_duration, SEGMENT_DURATION):
+    buffer = 0.0
+    stalls = 0.0
+    total_bits = 0
+    
+    # Simulate every 1 second segment
+    max_time = df['timestamp'].max()
+    for t in np.arange(1.0, max_time - 1.0, 1.0):
         
-        # 1. VIEWPORT PREDICTION
-        predicted_tile_ids = get_predicted_tiles(t, df)
+        # 1. PREDICT
+        pred_tile = predict_future_tile(t, df)
         
-        # 2. ABR DECISION (Flare Logic)
-        # High quality for predicted, Low for background
-        num_high = len(predicted_tile_ids)
-        num_low = TOTAL_TILES - num_high
-        
-        segment_size_bits = (num_high * (BITRATE_HIGH/TOTAL_TILES)) + \
-                            (num_low * (BITRATE_LOW/TOTAL_TILES))
-        
-        # 3. NETWORK SIMULATION
-        # Get bandwidth at this second (wrap around trace if needed)
-        bandwidth_mbps = network_trace_mbps[int(t) % len(network_trace_mbps)]
-        bandwidth_bps = bandwidth_mbps * 1_000_000
-        
-        download_time = segment_size_bits / bandwidth_bps
-        total_bits_downloaded += segment_size_bits
-        
-        # 4. BUFFER & STALL CALCULATION
-        if download_time > SEGMENT_DURATION:
-            # We took too long! Buffer drains.
-            deficit = download_time - SEGMENT_DURATION
-            if buffer_level >= deficit:
-                buffer_level -= deficit
-            else:
-                total_stall_time += (deficit - buffer_level)
-                buffer_level = 0
+        # 2. DECIDE (Fetch Predict + Neighbors)
+        # If prediction fails (None), fetch WHOLE 360 (Monolithic fallback)
+        if pred_tile is None:
+            download_size_bits = TOTAL_TILES * BITRATE_HIGH_KBPS * 1000
         else:
-            # We were fast! Buffer grows.
-            buffer_level += (SEGMENT_DURATION - download_time)
-            
-    # RESULTS
-    print(f"  Total Download: {total_bits_downloaded / 1_000_000:.2f} Mb")
-    print(f"  Stall Time: {total_stall_time:.2f} sec")
+            # Fetch 1 High Quality Tile + 23 Low Quality Tiles
+            # (In a real system, you'd fetch neighbors too, say 4 High, 20 Low)
+            download_size_bits = (4 * BITRATE_HIGH_KBPS * 1000) + \
+                                 (20 * BITRATE_LOW_KBPS * 1000)
+        
+        total_bits += download_size_bits
+        
+        # 3. DOWNLOAD
+        bw_mbps = network_trace[int(t) % len(network_trace)]
+        download_time = download_size_bits / (bw_mbps * 1_000_000)
+        
+        # 4. BUFFER LOGIC
+        if download_time > 1.0:
+            stalls += (download_time - 1.0)
+        else:
+            buffer += (1.0 - download_time)
+
+    # METRICS
+    baseline_bits = max_time * TOTAL_TILES * BITRATE_HIGH_KBPS * 1000
+    savings = 1.0 - (total_bits / baseline_bits)
     
-    # Compare to Baseline (Monolithic - All High Quality)
-    baseline_bits = (BITRATE_HIGH * video_duration)
-    savings = 1.0 - (total_bits_downloaded / baseline_bits)
-    print(f"  Bandwidth Savings: {savings:.2%}")
+    return savings, stalls
 
 if __name__ == "__main__":
-    # Example: Variable Network (5Mbps to 20Mbps)
-    NETWORK_TRACE = [5, 10, 15, 20, 15, 10, 5, 2, 5, 10] 
+    # Test on one file
+    # REPLACE WITH ONE OF YOUR REAL FILES
+    test_file = r"C:\Users\feido\Documents\Code\6.5820\vr-abr-with-viewport\360_Video_analysis\data\test0\Diving-2OzlksZBTiA\Diving-2OzlksZBTiA_0_processed.csv"
     
-    # Pick one processed file to test
-    TEST_FILE = r"C:\Users\feido\Documents\Code\6.5820\vr-abr-with-viewport\360_Video_analysis\data\test_user_processed.csv"
-    
-    # Note: You need to point this to a real file path!
-    # run_simulation(TEST_FILE, NETWORK_TRACE)
+    sav, stall = run_simulation(test_file)
+    print(f"\nRESULTS:")
+    print(f"Bandwidth Savings: {sav:.2%}")
+    print(f"Total Stall Time: {stall:.2f}s")

@@ -137,6 +137,13 @@ def run_benchmark(root_dir):
     print("Saved detailed results to 'final_prediction_results.csv'")
 
 if __name__ == "__main__":
-    # Update this path to your data folder
+    # Updated path based on your screenshots and file structure
+    # It points to the 'data' folder inside '360_Video_analysis'
     DATA_ROOT_DIR = r"C:\Users\feido\Documents\Code\6.5820\vr-abr-with-viewport\360_Video_analysis\data"
-    run_benchmark(DATA_ROOT_DIR)
+    
+    # Check if path exists before running
+    if os.path.exists(DATA_ROOT_DIR):
+        run_benchmark(DATA_ROOT_DIR)
+    else:
+        print(f"Error: Could not find folder at: {DATA_ROOT_DIR}")
+        print("Please check if '360_Video_analysis' is spelled correctly.")
