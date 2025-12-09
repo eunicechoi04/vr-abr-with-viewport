@@ -63,12 +63,20 @@ def process_frame_to_saliency(frame, original_width, original_height):
 
     return output_map_fullsize
 
-def process_video(video_path, output_dir, target_fps=30, max_duration=60):
-    """Process first 60 seconds of video at 30fps and create saliency video"""
+def process_video(video_path, output_dir, target_fps=30, start_time=0, end_time=60):
+    """Process a time range of video at 30fps and create saliency video
+    
+    Args:
+        video_path: Path to input video
+        output_dir: Directory to save output
+        target_fps: Output FPS (default: 30)
+        start_time: Start time in seconds (default: 0)
+        end_time: End time in seconds (default: 60)
+    """
     video_name = os.path.splitext(os.path.basename(video_path))[0]
-    output_path = os.path.join(output_dir, f"{video_name}_saliency_60s.mp4")
+    output_path = os.path.join(output_dir, f"{video_name}_saliency_{start_time}s_{end_time}s.mp4")
 
-    print(f"Processing: {video_name}", flush=True)
+    print(f"Processing: {video_name} (from {start_time}s to {end_time}s)", flush=True)
 
     # Open video
     cap = cv2.VideoCapture(video_path)
@@ -80,16 +88,26 @@ def process_video(video_path, output_dir, target_fps=30, max_duration=60):
     original_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
     original_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
     original_fps = cap.get(cv2.CAP_PROP_FPS)
+    if original_fps == 0:
+        original_fps = 30  # Fallback
     total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
 
     print(f"  Original dimensions: {original_width}x{original_height}", flush=True)
     print(f"  Original FPS: {original_fps}", flush=True)
     print(f"  Total frames in video: {total_frames}", flush=True)
 
-    # Calculate max frames to process (60 seconds at target fps)
-    max_frames = target_fps * max_duration
+    # Calculate duration and frames
+    duration = end_time - start_time
+    max_frames = target_fps * duration
+    start_frame = int(start_time * original_fps)
+    end_frame = int(end_time * original_fps)
+    
     print(f"  Will process: {max_frames} frames at {target_fps} fps", flush=True)
+    print(f"  Frame range: {start_frame} to {end_frame}", flush=True)
 
+    # Seek to start position
+    cap.set(cv2.CAP_PROP_POS_FRAMES, start_frame)
+    
     # Calculate frame interval for sampling
     frame_interval = original_fps / target_fps
 
@@ -98,11 +116,10 @@ def process_video(video_path, output_dir, target_fps=30, max_duration=60):
     out = cv2.VideoWriter(output_path, fourcc, target_fps, (original_width, original_height), isColor=False)
 
     # Process frames
-    frame_count = 0
     processed_count = 0
-    next_frame_to_process = 0
+    next_frame_to_process = start_frame
 
-    while processed_count < max_frames:
+    while processed_count < max_frames and next_frame_to_process < end_frame:
         # Set to the next frame we want to process
         cap.set(cv2.CAP_PROP_POS_FRAMES, int(next_frame_to_process))
         ret, frame = cap.read()
@@ -129,14 +146,47 @@ def process_video(video_path, output_dir, target_fps=30, max_duration=60):
     print(f"  Completed! Saved to: {output_path}", flush=True)
     print(f"  Final frame count: {processed_count}\n", flush=True)
 
+def process_single_video(video_path, output_dir, target_fps=30, start_time=0, end_time=60):
+    """Process a single video file
+    
+    Args:
+        video_path: Full path to the video file
+        output_dir: Directory to save output
+        target_fps: Output FPS (default: 30)
+        start_time: Start time in seconds (default: 0)
+        end_time: End time in seconds (default: 60)
+    """
+    os.makedirs(output_dir, exist_ok=True)
+    
+    if not os.path.exists(video_path):
+        print(f"ERROR: Video file not found: {video_path}", flush=True)
+        return
+    
+    print("="*60, flush=True)
+    print(f"Processing single video:", flush=True)
+    print(f"  Input: {video_path}", flush=True)
+    print(f"  Time range: {start_time}s to {end_time}s", flush=True)
+    print(f"  Output: {output_dir}", flush=True)
+    print("="*60, flush=True)
+    
+    process_video(video_path, output_dir, target_fps, start_time, end_time)
+    
+    print("="*60, flush=True)
+    print("Done!", flush=True)
+
 def main():
     # Find all video files
     video_dir = "/Users/eunicechoi04/Downloads/videoabr/data/videos"
-    output_dir = "/Users/eunicechoi04/Downloads/videoabr/data/saliency_videos_60s"
+    output_dir = "/Users/eunicechoi04/Downloads/videoabr/output/saliency_videos_60s"
 
     # Create output directory
     os.makedirs(output_dir, exist_ok=True)
 
+    # Time range configuration
+    START_TIME = 0    # Start time in seconds
+    END_TIME = 60     # End time in seconds
+    TARGET_FPS = 30
+    
     # Get all .webm and .mkv files
     webm_files = glob.glob(os.path.join(video_dir, "*.webm"))
     mkv_files = glob.glob(os.path.join(video_dir, "*.mkv"))
@@ -144,16 +194,26 @@ def main():
 
     print(f"Found {len(all_videos)} videos to process", flush=True)
     print(f"Output directory: {output_dir}", flush=True)
-    print(f"Processing: First 60 seconds at 30fps\n", flush=True)
+    print(f"Processing: {START_TIME}s to {END_TIME}s at {TARGET_FPS}fps\n", flush=True)
     print("="*60, flush=True)
 
     # Process each video
     for i, video_path in enumerate(all_videos, 1):
         print(f"\n[{i}/{len(all_videos)}]", flush=True)
-        process_video(video_path, output_dir, target_fps=30, max_duration=60)
+        process_video(video_path, output_dir, TARGET_FPS, START_TIME, END_TIME)
         print("="*60, flush=True)
 
     print("\nAll videos processed successfully!", flush=True)
 
 if __name__ == "__main__":
-    main()
+    # OPTION 1: Process all videos in directory
+    # main()
+    
+    # OPTION 2: Process single video (uncomment to use)
+    process_single_video(
+        video_path="/Users/eunicechoi04/Downloads/videoabr/data/videos/2bpICIClAIg.webm",
+        output_dir="/Users/eunicechoi04/Downloads/videoabr/output/saliency_videos_60s",
+        target_fps=30,
+        start_time=40,   # Start at 0:40
+        end_time=100     # End at 1:40
+    )

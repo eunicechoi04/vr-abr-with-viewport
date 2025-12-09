@@ -1,4 +1,12 @@
 # Dataset
 data/360dataset/*
 data/videos/*
+data/traces/*
 */__init__.py
+*.mp4
+*.log
+*.model
+venv/
+.venv/
+.DS_Store
+docs/

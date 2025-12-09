@@ -2,24 +2,47 @@ import cv2
 import numpy as np
 import os
 
-def create_sparse_motion_map(input_folder, output_folder):
+def create_sparse_motion_map(input_folder, output_folder, start_time=0, end_time=60):
+    """
+    Create sparse motion maps for videos.
+    
+    Args:
+        input_folder: Directory containing input videos
+        output_folder: Directory to save motion maps
+        start_time: Start time in seconds (default: 0)
+        end_time: End time in seconds (default: 60)
+    """
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
 
-    video_files = [f for f in os.listdir(input_folder) if f.endswith(('.mkv', '.webm'))]
+    # video_files = [f for f in os.listdir(input_folder) if f.endswith(('.mkv', '.webm'))]
+    video_files = [f for f in os.listdir(input_folder) if f.endswith(('2bpICIClAIg.webm'))]
 
     for video_file in video_files:
         input_path = os.path.join(input_folder, video_file)
-        output_filename = f"sparse_motion_{os.path.splitext(video_file)[0]}.mp4"
+        output_filename = f"40sparse_motion_{os.path.splitext(video_file)[0]}.mp4"
         output_path = os.path.join(output_folder, output_filename)
         
-        print(f"Processing: {video_file}...")
+        print(f"Processing: {video_file} (from {start_time}s to {end_time}s)...")
 
         cap = cv2.VideoCapture(input_path)
         
-        # Methodology constraint: 30 FPS for 60 seconds
+        # Get original FPS
+        original_fps = cap.get(cv2.CAP_PROP_FPS)
+        if original_fps == 0:
+            original_fps = 30  # Fallback
+        
+        # Methodology constraint: 30 FPS output
         TARGET_FPS = 30
-        MAX_FRAMES = 60 * TARGET_FPS 
+        duration = end_time - start_time
+        MAX_FRAMES = duration * TARGET_FPS
+        
+        # Calculate which frame to start at in the original video
+        start_frame = int(start_time * original_fps)
+        end_frame = int(end_time * original_fps)
+        
+        # Seek to start position
+        cap.set(cv2.CAP_PROP_POS_FRAMES, start_frame)
         
         # Get video dimensions
         width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
@@ -28,12 +51,12 @@ def create_sparse_motion_map(input_folder, output_folder):
         fourcc = cv2.VideoWriter_fourcc(*'mp4v')
         out = cv2.VideoWriter(output_path, fourcc, TARGET_FPS, (width, height), isColor=False)
 
-        # Read first frame
+        # Read first frame (at start_time position)
         ret, old_frame = cap.read()
         if not ret:
+            print(f"  ERROR: Could not read frame at {start_time}s")
             cap.release()
-            continue
-            
+            continue        
         old_gray = cv2.cvtColor(old_frame, cv2.COLOR_BGR2GRAY)
 
         # PARAMETERS FOR FEATURE TRACKING (The "Sparse" part)
@@ -49,11 +72,14 @@ def create_sparse_motion_map(input_folder, output_folder):
                          criteria=(cv2.TERM_CRITERIA_EPS | cv2.TERM_CRITERIA_COUNT, 10, 0.03))
 
         frame_count = 0
+        current_frame_num = start_frame
 
-        while frame_count < MAX_FRAMES:
+        while frame_count < MAX_FRAMES and current_frame_num < end_frame:
             ret, frame = cap.read()
             if not ret:
                 break
+            
+            current_frame_num += 1
                 
             frame_gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
@@ -100,4 +126,9 @@ def create_sparse_motion_map(input_folder, output_folder):
 if __name__ == "__main__":
     INPUT_DIR = "/Users/eunicechoi04/Downloads/videoabr/data/videos"
     OUTPUT_DIR = "/Users/eunicechoi04/Downloads/videoabr/output/motion_maps"
-    create_sparse_motion_map(INPUT_DIR, OUTPUT_DIR)
+    
+    # Time range configuration
+    START_TIME = 40   # Start at 0:40
+    END_TIME = 100    # End at 1:40 (40 + 60 seconds)
+    
+    create_sparse_motion_map(INPUT_DIR, OUTPUT_DIR, start_time=START_TIME, end_time=END_TIME)
