@@ -1,0 +1,1654 @@
+{
+  "num_segments": 70,
+  "video_duration": 70.52,
+  "total_qoe": -46630.390860057996,
+  "avg_qoe_per_segment": -666.1484408579714,
+  "total_rebuf_time": 10887.561827920457,
+  "rebuf_ratio": 154.38970260806096,
+  "viewport_hits": 73,
+  "viewport_misses": 36,
+  "viewport_hit_rate": 0.6697247706422018,
+  "total_bits_downloaded": 2100000000.0,
+  "total_mb_downloaded": 262.5,
+  "bandwidth_savings": 0.75,
+  "avg_bandwidth_mbps": 3.722348269994328,
+  "segment_logs": [
+    {
+      "segment": 0,
+      "bandwidth_mbps": 0.007,
+      "buffer_level": 1.0,
+      "rebuf_time": 375.0,
+      "download_time": 375.0,
+      "high_quality_tiles": [
+        "9",
+        "18",
+        "20",
+        "6"
+      ],
+      "actual_tiles_viewed": [
+        "11"
+      ],
+      "tiles_hit": [],
+      "tiles_missed": [
+        "11"
+      ],
+      "segment_qoe": -1614.0,
+      "viewport_quality_kbps": 500.0
+    },
+    {
+      "segment": 1,
+      "bandwidth_mbps": 0.008,
+      "buffer_level": 1.0,
+      "rebuf_time": 374.0,
+      "download_time": 375.0,
+      "high_quality_tiles": [
+        6,
+        0,
+        1,
+        5
+      ],
+      "actual_tiles_viewed": [
+        "11",
+        "17"
+      ],
+      "tiles_hit": [],
+      "tiles_missed": [
+        "11",
+        "17"
+      ],
+      "segment_qoe": -1611.7,
+      "viewport_quality_kbps": 500.0
+    },
+    {
+      "segment": 2,
+      "bandwidth_mbps": 0.008,
+      "buffer_level": 1.0,
+      "rebuf_time": 374.0,
+      "download_time": 375.0,
+      "high_quality_tiles": [
+        17,
+        6,
+        10,
+        11
+      ],
+      "actual_tiles_viewed": [
+        "17"
+      ],
+      "tiles_hit": [
+        "17"
+      ],
+      "tiles_missed": [],
+      "segment_qoe": -1603.2,
+      "viewport_quality_kbps": 5000.0
+    },
+    {
+      "segment": 3,
+      "bandwidth_mbps": 0.008,
+      "buffer_level": 1.0,
+      "rebuf_time": 374.0,
+      "download_time": 375.0,
+      "high_quality_tiles": [
+        17,
+        6,
+        10,
+        11
+      ],
+      "actual_tiles_viewed": [
+        "17"
+      ],
+      "tiles_hit": [
+        "17"
+      ],
+      "tiles_missed": [],
+      "segment_qoe": -1603.2,
+      "viewport_quality_kbps": 5000.0
+    },
+    {
+      "segment": 4,
+      "bandwidth_mbps": 0.008,
+      "buffer_level": 1.0,
+      "rebuf_time": 374.0,
+      "download_time": 375.0,
+      "high_quality_tiles": [
+        17,
+        6,
+        10,
+        11
+      ],
+      "actual_tiles_viewed": [
+        "17"
+      ],
+      "tiles_hit": [
+        "17"
+      ],
+      "tiles_missed": [],
+      "segment_qoe": -1603.2,
+      "viewport_quality_kbps": 5000.0
+    },
+    {
+      "segment": 5,
+      "bandwidth_mbps": 0.008,
+      "buffer_level": 1.0,
+      "rebuf_time": 374.0,
+      "download_time": 375.0,
+      "high_quality_tiles": [
+        17,
+        6,
+        10,
+        11
+      ],
+      "actual_tiles_viewed": [
+        "17"
+      ],
+      "tiles_hit": [
+        "17"
+      ],
+      "tiles_missed": [],
+      "segment_qoe": -1603.2,
+      "viewport_quality_kbps": 5000.0
+    },
+    {
+      "segment": 6,
+      "bandwidth_mbps": 0.008,
+      "buffer_level": 1.0,
+      "rebuf_time": 374.0,
+      "download_time": 375.0,
+      "high_quality_tiles": [
+        17,
+        6,
+        10,
+        11
+      ],
+      "actual_tiles_viewed": [
+        "17"
+      ],
+      "tiles_hit": [
+        "17"
+      ],
+      "tiles_missed": [],
+      "segment_qoe": -1603.2,
+      "viewport_quality_kbps": 5000.0
+    },
+    {
+      "segment": 7,
+      "bandwidth_mbps": 0.014,
+      "buffer_level": 1.0,
+      "rebuf_time": 266.85714285714283,
+      "download_time": 267.85714285714283,
+      "high_quality_tiles": [
+        17,
+        6,
+        10,
+        11
+      ],
+      "actual_tiles_viewed": [
+        "17"
+      ],
+      "tiles_hit": [
+        "17"
+      ],
+      "tiles_missed": [],
+      "segment_qoe": -1142.485714285714,
+      "viewport_quality_kbps": 5000.0
+    },
+    {
+      "segment": 8,
+      "bandwidth_mbps": 0.014,
+      "buffer_level": 1.0,
+      "rebuf_time": 266.85714285714283,
+      "download_time": 267.85714285714283,
+      "high_quality_tiles": [
+        17,
+        6,
+        10,
+        11
+      ],
+      "actual_tiles_viewed": [
+        "17"
+      ],
+      "tiles_hit": [
+        "17"
+      ],
+      "tiles_missed": [],
+      "segment_qoe": -1142.485714285714,
+      "viewport_quality_kbps": 5000.0
+    },
+    {
+      "segment": 9,
+      "bandwidth_mbps": 0.014,
+      "buffer_level": 1.0,
+      "rebuf_time": 266.85714285714283,
+      "download_time": 267.85714285714283,
+      "high_quality_tiles": [
+        17,
+        6,
+        10,
+        11
+      ],
+      "actual_tiles_viewed": [
+        "17"
+      ],
+      "tiles_hit": [
+        "17"
+      ],
+      "tiles_missed": [],
+      "segment_qoe": -1142.485714285714,
+      "viewport_quality_kbps": 5000.0
+    },
+    {
+      "segment": 10,
+      "bandwidth_mbps": 0.014,
+      "buffer_level": 1.0,
+      "rebuf_time": 266.85714285714283,
+      "download_time": 267.85714285714283,
+      "high_quality_tiles": [
+        17,
+        6,
+        10,
+        11
+      ],
+      "actual_tiles_viewed": [
+        "17",
+        "23"
+      ],
+      "tiles_hit": [
+        "17"
+      ],
+      "tiles_missed": [
+        "23"
+      ],
+      "segment_qoe": -1146.735714285714,
+      "viewport_quality_kbps": 2750.0
+    },
+    {
+      "segment": 11,
+      "bandwidth_mbps": 0.014,
+      "buffer_level": 1.0,
+      "rebuf_time": 266.85714285714283,
+      "download_time": 267.85714285714283,
+      "high_quality_tiles": [
+        17,
+        6,
+        10,
+        11
+      ],
+      "actual_tiles_viewed": [
+        "17"
+      ],
+      "tiles_hit": [
+        "17"
+      ],
+      "tiles_missed": [],
+      "segment_qoe": -1142.485714285714,
+      "viewport_quality_kbps": 5000.0
+    },
+    {
+      "segment": 12,
+      "bandwidth_mbps": 0.014,
+      "buffer_level": 1.0,
+      "rebuf_time": 266.85714285714283,
+      "download_time": 267.85714285714283,
+      "high_quality_tiles": [
+        17,
+        6,
+        10,
+        11
+      ],
+      "actual_tiles_viewed": [
+        "17",
+        "11"
+      ],
+      "tiles_hit": [
+        "17",
+        "11"
+      ],
+      "tiles_missed": [],
+      "segment_qoe": -1142.485714285714,
+      "viewport_quality_kbps": 5000.0
+    },
+    {
+      "segment": 13,
+      "bandwidth_mbps": 0.021,
+      "buffer_level": 1.0,
+      "rebuf_time": 177.57142857142856,
+      "download_time": 178.57142857142856,
+      "high_quality_tiles": [
+        17,
+        6,
+        10,
+        11
+      ],
+      "actual_tiles_viewed": [
+        "11",
+        "17"
+      ],
+      "tiles_hit": [
+        "11",
+        "17"
+      ],
+      "tiles_missed": [],
+      "segment_qoe": -758.5571428571427,
+      "viewport_quality_kbps": 5000.0
+    },
+    {
+      "segment": 14,
+      "bandwidth_mbps": 0.028,
+      "buffer_level": 1.0,
+      "rebuf_time": 132.92857142857142,
+      "download_time": 133.92857142857142,
+      "high_quality_tiles": [
+        11,
+        0,
+        4,
+        5
+      ],
+      "actual_tiles_viewed": [
+        "17",
+        "11",
+        "6"
+      ],
+      "tiles_hit": [
+        "11"
+      ],
+      "tiles_missed": [
+        "17",
+        "6"
+      ],
+      "segment_qoe": -573.592857142857,
+      "viewport_quality_kbps": 2000.0
+    },
+    {
+      "segment": 15,
+      "bandwidth_mbps": 0.033,
+      "buffer_level": 1.0,
+      "rebuf_time": 112.63636363636363,
+      "download_time": 113.63636363636363,
+      "high_quality_tiles": [
+        17,
+        6,
+        10,
+        11
+      ],
+      "actual_tiles_viewed": [
+        "6"
+      ],
+      "tiles_hit": [
+        "6"
+      ],
+      "tiles_missed": [],
+      "segment_qoe": -479.33636363636356,
+      "viewport_quality_kbps": 5000.0
+    },
+    {
+      "segment": 16,
+      "bandwidth_mbps": 0.034,
+      "buffer_level": 1.0,
+      "rebuf_time": 109.29411764705881,
+      "download_time": 110.29411764705881,
+      "high_quality_tiles": [
+        9,
+        2,
+        3,
+        4
+      ],
+      "actual_tiles_viewed": [
+        "6"
+      ],
+      "tiles_hit": [],
+      "tiles_missed": [
+        "6"
+      ],
+      "segment_qoe": -471.46470588235286,
+      "viewport_quality_kbps": 500.0
+    },
+    {
+      "segment": 17,
+      "bandwidth_mbps": 0.034,
+      "buffer_level": 1.0,
+      "rebuf_time": 109.29411764705881,
+      "download_time": 110.29411764705881,
+      "high_quality_tiles": [
+        6,
+        0,
+        1,
+        5
+      ],
+      "actual_tiles_viewed": [
+        "6"
+      ],
+      "tiles_hit": [
+        "6"
+      ],
+      "tiles_missed": [],
+      "segment_qoe": -464.96470588235286,
+      "viewport_quality_kbps": 5000.0
+    },
+    {
+      "segment": 18,
+      "bandwidth_mbps": 0.034,
+      "buffer_level": 1.0,
+      "rebuf_time": 109.29411764705881,
+      "download_time": 110.29411764705881,
+      "high_quality_tiles": [
+        6,
+        0,
+        1,
+        5
+      ],
+      "actual_tiles_viewed": [
+        "6"
+      ],
+      "tiles_hit": [
+        "6"
+      ],
+      "tiles_missed": [],
+      "segment_qoe": -464.96470588235286,
+      "viewport_quality_kbps": 5000.0
+    },
+    {
+      "segment": 19,
+      "bandwidth_mbps": 0.043,
+      "buffer_level": 1.0,
+      "rebuf_time": 86.2093023255814,
+      "download_time": 87.2093023255814,
+      "high_quality_tiles": [
+        6,
+        0,
+        1,
+        5
+      ],
+      "actual_tiles_viewed": [
+        "6"
+      ],
+      "tiles_hit": [
+        "6"
+      ],
+      "tiles_missed": [],
+      "segment_qoe": -365.70000000000005,
+      "viewport_quality_kbps": 5000.0
+    },
+    {
+      "segment": 20,
+      "bandwidth_mbps": 0.043,
+      "buffer_level": 1.0,
+      "rebuf_time": 86.2093023255814,
+      "download_time": 87.2093023255814,
+      "high_quality_tiles": [
+        7,
+        0,
+        1,
+        2
+      ],
+      "actual_tiles_viewed": [
+        "6",
+        "7"
+      ],
+      "tiles_hit": [
+        "7"
+      ],
+      "tiles_missed": [
+        "6"
+      ],
+      "segment_qoe": -369.95000000000005,
+      "viewport_quality_kbps": 2750.0
+    },
+    {
+      "segment": 21,
+      "bandwidth_mbps": 0.043,
+      "buffer_level": 1.0,
+      "rebuf_time": 86.2093023255814,
+      "download_time": 87.2093023255814,
+      "high_quality_tiles": [
+        7,
+        0,
+        1,
+        2
+      ],
+      "actual_tiles_viewed": [
+        "7",
+        "6"
+      ],
+      "tiles_hit": [
+        "7"
+      ],
+      "tiles_missed": [
+        "6"
+      ],
+      "segment_qoe": -369.95000000000005,
+      "viewport_quality_kbps": 2750.0
+    },
+    {
+      "segment": 22,
+      "bandwidth_mbps": 0.043,
+      "buffer_level": 1.0,
+      "rebuf_time": 86.2093023255814,
+      "download_time": 87.2093023255814,
+      "high_quality_tiles": [
+        7,
+        0,
+        1,
+        2
+      ],
+      "actual_tiles_viewed": [
+        "6",
+        "0"
+      ],
+      "tiles_hit": [
+        "0"
+      ],
+      "tiles_missed": [
+        "6"
+      ],
+      "segment_qoe": -369.95000000000005,
+      "viewport_quality_kbps": 2750.0
+    },
+    {
+      "segment": 23,
+      "bandwidth_mbps": 0.043,
+      "buffer_level": 1.0,
+      "rebuf_time": 86.2093023255814,
+      "download_time": 87.2093023255814,
+      "high_quality_tiles": [
+        5,
+        0,
+        4,
+        6
+      ],
+      "actual_tiles_viewed": [
+        "0",
+        "5"
+      ],
+      "tiles_hit": [
+        "0",
+        "5"
+      ],
+      "tiles_missed": [],
+      "segment_qoe": -365.70000000000005,
+      "viewport_quality_kbps": 5000.0
+    },
+    {
+      "segment": 24,
+      "bandwidth_mbps": 0.043,
+      "buffer_level": 1.0,
+      "rebuf_time": 86.2093023255814,
+      "download_time": 87.2093023255814,
+      "high_quality_tiles": [
+        5,
+        0,
+        4,
+        6
+      ],
+      "actual_tiles_viewed": [
+        "5"
+      ],
+      "tiles_hit": [
+        "5"
+      ],
+      "tiles_missed": [],
+      "segment_qoe": -365.70000000000005,
+      "viewport_quality_kbps": 5000.0
+    },
+    {
+      "segment": 25,
+      "bandwidth_mbps": 0.043,
+      "buffer_level": 1.0,
+      "rebuf_time": 86.2093023255814,
+      "download_time": 87.2093023255814,
+      "high_quality_tiles": [
+        5,
+        0,
+        4,
+        6
+      ],
+      "actual_tiles_viewed": [
+        "5",
+        "4",
+        "3"
+      ],
+      "tiles_hit": [
+        "5",
+        "4"
+      ],
+      "tiles_missed": [
+        "3"
+      ],
+      "segment_qoe": -369.20000000000005,
+      "viewport_quality_kbps": 3500.0
+    },
+    {
+      "segment": 26,
+      "bandwidth_mbps": 0.043,
+      "buffer_level": 1.0,
+      "rebuf_time": 86.2093023255814,
+      "download_time": 87.2093023255814,
+      "high_quality_tiles": [
+        5,
+        0,
+        4,
+        6
+      ],
+      "actual_tiles_viewed": [
+        "3",
+        "9"
+      ],
+      "tiles_hit": [],
+      "tiles_missed": [
+        "3",
+        "9"
+      ],
+      "segment_qoe": -374.20000000000005,
+      "viewport_quality_kbps": 500.0
+    },
+    {
+      "segment": 27,
+      "bandwidth_mbps": 0.045,
+      "buffer_level": 1.0,
+      "rebuf_time": 82.33333333333334,
+      "download_time": 83.33333333333334,
+      "high_quality_tiles": [
+        3,
+        2,
+        4,
+        8
+      ],
+      "actual_tiles_viewed": [
+        "9"
+      ],
+      "tiles_hit": [],
+      "tiles_missed": [
+        "9"
+      ],
+      "segment_qoe": -355.53333333333336,
+      "viewport_quality_kbps": 500.0
+    },
+    {
+      "segment": 28,
+      "bandwidth_mbps": 0.045,
+      "buffer_level": 1.0,
+      "rebuf_time": 82.33333333333334,
+      "download_time": 83.33333333333334,
+      "high_quality_tiles": [
+        9,
+        2,
+        3,
+        4
+      ],
+      "actual_tiles_viewed": [
+        "9"
+      ],
+      "tiles_hit": [
+        "9"
+      ],
+      "tiles_missed": [],
+      "segment_qoe": -349.03333333333336,
+      "viewport_quality_kbps": 5000.0
+    },
+    {
+      "segment": 29,
+      "bandwidth_mbps": 0.055,
+      "buffer_level": 1.0,
+      "rebuf_time": 67.18181818181819,
+      "download_time": 68.18181818181819,
+      "high_quality_tiles": [
+        9,
+        2,
+        3,
+        4
+      ],
+      "actual_tiles_viewed": [
+        "9"
+      ],
+      "tiles_hit": [
+        "9"
+      ],
+      "tiles_missed": [],
+      "segment_qoe": -283.8818181818182,
+      "viewport_quality_kbps": 5000.0
+    },
+    {
+      "segment": 30,
+      "bandwidth_mbps": 0.055,
+      "buffer_level": 1.0,
+      "rebuf_time": 67.18181818181819,
+      "download_time": 68.18181818181819,
+      "high_quality_tiles": [
+        9,
+        2,
+        3,
+        4
+      ],
+      "actual_tiles_viewed": [
+        "9"
+      ],
+      "tiles_hit": [
+        "9"
+      ],
+      "tiles_missed": [],
+      "segment_qoe": -283.8818181818182,
+      "viewport_quality_kbps": 5000.0
+    },
+    {
+      "segment": 31,
+      "bandwidth_mbps": 0.056,
+      "buffer_level": 1.0,
+      "rebuf_time": 65.96428571428571,
+      "download_time": 66.96428571428571,
+      "high_quality_tiles": [
+        2,
+        1,
+        3,
+        7
+      ],
+      "actual_tiles_viewed": [
+        "9"
+      ],
+      "tiles_hit": [],
+      "tiles_missed": [
+        "9"
+      ],
+      "segment_qoe": -285.14642857142854,
+      "viewport_quality_kbps": 500.0
+    },
+    {
+      "segment": 32,
+      "bandwidth_mbps": 0.056,
+      "buffer_level": 1.0,
+      "rebuf_time": 65.96428571428571,
+      "download_time": 66.96428571428571,
+      "high_quality_tiles": [
+        9,
+        2,
+        3,
+        4
+      ],
+      "actual_tiles_viewed": [
+        "9",
+        "3",
+        "2"
+      ],
+      "tiles_hit": [
+        "9",
+        "3",
+        "2"
+      ],
+      "tiles_missed": [],
+      "segment_qoe": -278.64642857142854,
+      "viewport_quality_kbps": 5000.0
+    },
+    {
+      "segment": 33,
+      "bandwidth_mbps": 0.056,
+      "buffer_level": 1.0,
+      "rebuf_time": 65.96428571428571,
+      "download_time": 66.96428571428571,
+      "high_quality_tiles": [
+        3,
+        2,
+        4,
+        8
+      ],
+      "actual_tiles_viewed": [
+        "2",
+        "3"
+      ],
+      "tiles_hit": [
+        "2",
+        "3"
+      ],
+      "tiles_missed": [],
+      "segment_qoe": -278.64642857142854,
+      "viewport_quality_kbps": 5000.0
+    },
+    {
+      "segment": 34,
+      "bandwidth_mbps": 0.062,
+      "buffer_level": 1.0,
+      "rebuf_time": 59.483870967741936,
+      "download_time": 60.483870967741936,
+      "high_quality_tiles": [
+        1,
+        0,
+        2,
+        6
+      ],
+      "actual_tiles_viewed": [
+        "4"
+      ],
+      "tiles_hit": [],
+      "tiles_missed": [
+        "4"
+      ],
+      "segment_qoe": -257.2806451612903,
+      "viewport_quality_kbps": 500.0
+    },
+    {
+      "segment": 35,
+      "bandwidth_mbps": 0.062,
+      "buffer_level": 1.0,
+      "rebuf_time": 59.483870967741936,
+      "download_time": 60.483870967741936,
+      "high_quality_tiles": [
+        5,
+        0,
+        4,
+        6
+      ],
+      "actual_tiles_viewed": [
+        "4",
+        "10"
+      ],
+      "tiles_hit": [
+        "4"
+      ],
+      "tiles_missed": [
+        "10"
+      ],
+      "segment_qoe": -255.03064516129032,
+      "viewport_quality_kbps": 2750.0
+    },
+    {
+      "segment": 36,
+      "bandwidth_mbps": 0.062,
+      "buffer_level": 1.0,
+      "rebuf_time": 59.483870967741936,
+      "download_time": 60.483870967741936,
+      "high_quality_tiles": [
+        11,
+        0,
+        4,
+        5
+      ],
+      "actual_tiles_viewed": [
+        "10"
+      ],
+      "tiles_hit": [],
+      "tiles_missed": [
+        "10"
+      ],
+      "segment_qoe": -257.2806451612903,
+      "viewport_quality_kbps": 500.0
+    },
+    {
+      "segment": 37,
+      "bandwidth_mbps": 0.063,
+      "buffer_level": 1.0,
+      "rebuf_time": 58.523809523809526,
+      "download_time": 59.523809523809526,
+      "high_quality_tiles": [
+        16,
+        9,
+        10,
+        11
+      ],
+      "actual_tiles_viewed": [
+        "10"
+      ],
+      "tiles_hit": [
+        "10"
+      ],
+      "tiles_missed": [],
+      "segment_qoe": -246.65238095238095,
+      "viewport_quality_kbps": 5000.0
+    },
+    {
+      "segment": 38,
+      "bandwidth_mbps": 0.063,
+      "buffer_level": 1.0,
+      "rebuf_time": 58.523809523809526,
+      "download_time": 59.523809523809526,
+      "high_quality_tiles": [
+        10,
+        3,
+        4,
+        5
+      ],
+      "actual_tiles_viewed": [
+        "10",
+        "16",
+        "17"
+      ],
+      "tiles_hit": [
+        "10"
+      ],
+      "tiles_missed": [
+        "16",
+        "17"
+      ],
+      "segment_qoe": -253.65238095238095,
+      "viewport_quality_kbps": 2000.0
+    },
+    {
+      "segment": 39,
+      "bandwidth_mbps": 0.063,
+      "buffer_level": 1.0,
+      "rebuf_time": 58.523809523809526,
+      "download_time": 59.523809523809526,
+      "high_quality_tiles": [
+        17,
+        6,
+        10,
+        11
+      ],
+      "actual_tiles_viewed": [
+        "16"
+      ],
+      "tiles_hit": [],
+      "tiles_missed": [
+        "16"
+      ],
+      "segment_qoe": -253.15238095238095,
+      "viewport_quality_kbps": 500.0
+    },
+    {
+      "segment": 40,
+      "bandwidth_mbps": 0.063,
+      "buffer_level": 1.0,
+      "rebuf_time": 58.523809523809526,
+      "download_time": 59.523809523809526,
+      "high_quality_tiles": [
+        16,
+        9,
+        10,
+        11
+      ],
+      "actual_tiles_viewed": [
+        "16",
+        "17"
+      ],
+      "tiles_hit": [
+        "16"
+      ],
+      "tiles_missed": [
+        "17"
+      ],
+      "segment_qoe": -250.90238095238095,
+      "viewport_quality_kbps": 2750.0
+    },
+    {
+      "segment": 41,
+      "bandwidth_mbps": 0.072,
+      "buffer_level": 1.0,
+      "rebuf_time": 51.083333333333336,
+      "download_time": 52.083333333333336,
+      "high_quality_tiles": [
+        16,
+        9,
+        10,
+        11
+      ],
+      "actual_tiles_viewed": [
+        "17",
+        "11"
+      ],
+      "tiles_hit": [
+        "11"
+      ],
+      "tiles_missed": [
+        "17"
+      ],
+      "segment_qoe": -218.90833333333333,
+      "viewport_quality_kbps": 2750.0
+    },
+    {
+      "segment": 42,
+      "bandwidth_mbps": 0.072,
+      "buffer_level": 1.0,
+      "rebuf_time": 51.083333333333336,
+      "download_time": 52.083333333333336,
+      "high_quality_tiles": [
+        12,
+        6,
+        7,
+        11
+      ],
+      "actual_tiles_viewed": [
+        "11",
+        "17"
+      ],
+      "tiles_hit": [
+        "11"
+      ],
+      "tiles_missed": [
+        "17"
+      ],
+      "segment_qoe": -218.90833333333333,
+      "viewport_quality_kbps": 2750.0
+    },
+    {
+      "segment": 43,
+      "bandwidth_mbps": 0.072,
+      "buffer_level": 1.0,
+      "rebuf_time": 51.083333333333336,
+      "download_time": 52.083333333333336,
+      "high_quality_tiles": [
+        6,
+        0,
+        1,
+        5
+      ],
+      "actual_tiles_viewed": [
+        "17",
+        "23"
+      ],
+      "tiles_hit": [],
+      "tiles_missed": [
+        "17",
+        "23"
+      ],
+      "segment_qoe": -223.15833333333333,
+      "viewport_quality_kbps": 500.0
+    },
+    {
+      "segment": 44,
+      "bandwidth_mbps": 0.072,
+      "buffer_level": 1.0,
+      "rebuf_time": 51.083333333333336,
+      "download_time": 52.083333333333336,
+      "high_quality_tiles": [
+        17,
+        6,
+        10,
+        11
+      ],
+      "actual_tiles_viewed": [
+        "23",
+        "17"
+      ],
+      "tiles_hit": [
+        "17"
+      ],
+      "tiles_missed": [
+        "23"
+      ],
+      "segment_qoe": -218.90833333333333,
+      "viewport_quality_kbps": 2750.0
+    },
+    {
+      "segment": 45,
+      "bandwidth_mbps": 0.072,
+      "buffer_level": 1.0,
+      "rebuf_time": 51.083333333333336,
+      "download_time": 52.083333333333336,
+      "high_quality_tiles": [
+        23,
+        0,
+        4,
+        5
+      ],
+      "actual_tiles_viewed": [
+        "17",
+        "23",
+        "18"
+      ],
+      "tiles_hit": [
+        "23"
+      ],
+      "tiles_missed": [
+        "17",
+        "18"
+      ],
+      "segment_qoe": -221.65833333333333,
+      "viewport_quality_kbps": 2000.0
+    },
+    {
+      "segment": 46,
+      "bandwidth_mbps": 0.072,
+      "buffer_level": 1.0,
+      "rebuf_time": 51.083333333333336,
+      "download_time": 52.083333333333336,
+      "high_quality_tiles": [
+        17,
+        6,
+        10,
+        11
+      ],
+      "actual_tiles_viewed": [
+        "18",
+        "12"
+      ],
+      "tiles_hit": [],
+      "tiles_missed": [
+        "18",
+        "12"
+      ],
+      "segment_qoe": -223.15833333333333,
+      "viewport_quality_kbps": 500.0
+    },
+    {
+      "segment": 47,
+      "bandwidth_mbps": 0.073,
+      "buffer_level": 1.0,
+      "rebuf_time": 50.369863013698634,
+      "download_time": 51.369863013698634,
+      "high_quality_tiles": [
+        20,
+        1,
+        2,
+        3
+      ],
+      "actual_tiles_viewed": [
+        "12",
+        "13"
+      ],
+      "tiles_hit": [],
+      "tiles_missed": [
+        "12",
+        "13"
+      ],
+      "segment_qoe": -220.09041095890413,
+      "viewport_quality_kbps": 500.0
+    },
+    {
+      "segment": 48,
+      "bandwidth_mbps": 0.074,
+      "buffer_level": 1.0,
+      "rebuf_time": 49.67567567567568,
+      "download_time": 50.67567567567568,
+      "high_quality_tiles": [
+        13,
+        6,
+        7,
+        8
+      ],
+      "actual_tiles_viewed": [
+        "13"
+      ],
+      "tiles_hit": [
+        "13"
+      ],
+      "tiles_missed": [],
+      "segment_qoe": -208.6054054054054,
+      "viewport_quality_kbps": 5000.0
+    },
+    {
+      "segment": 49,
+      "bandwidth_mbps": 0.076,
+      "buffer_level": 1.0,
+      "rebuf_time": 48.3421052631579,
+      "download_time": 49.3421052631579,
+      "high_quality_tiles": [
+        13,
+        6,
+        7,
+        8
+      ],
+      "actual_tiles_viewed": [
+        "13"
+      ],
+      "tiles_hit": [
+        "13"
+      ],
+      "tiles_missed": [],
+      "segment_qoe": -202.87105263157895,
+      "viewport_quality_kbps": 5000.0
+    },
+    {
+      "segment": 50,
+      "bandwidth_mbps": 0.077,
+      "buffer_level": 1.0,
+      "rebuf_time": 47.701298701298704,
+      "download_time": 48.701298701298704,
+      "high_quality_tiles": [
+        13,
+        6,
+        7,
+        8
+      ],
+      "actual_tiles_viewed": [
+        "13",
+        "12",
+        "6"
+      ],
+      "tiles_hit": [
+        "13",
+        "6"
+      ],
+      "tiles_missed": [
+        "12"
+      ],
+      "segment_qoe": -203.6155844155844,
+      "viewport_quality_kbps": 3500.0
+    },
+    {
+      "segment": 51,
+      "bandwidth_mbps": 0.078,
+      "buffer_level": 1.0,
+      "rebuf_time": 47.07692307692308,
+      "download_time": 48.07692307692308,
+      "high_quality_tiles": [
+        13,
+        6,
+        7,
+        8
+      ],
+      "actual_tiles_viewed": [
+        "6"
+      ],
+      "tiles_hit": [
+        "6"
+      ],
+      "tiles_missed": [],
+      "segment_qoe": -197.43076923076924,
+      "viewport_quality_kbps": 5000.0
+    },
+    {
+      "segment": 52,
+      "bandwidth_mbps": 0.08,
+      "buffer_level": 1.0,
+      "rebuf_time": 45.875,
+      "download_time": 46.875,
+      "high_quality_tiles": [
+        0,
+        1,
+        5,
+        6
+      ],
+      "actual_tiles_viewed": [
+        "6",
+        "0"
+      ],
+      "tiles_hit": [
+        "6",
+        "0"
+      ],
+      "tiles_missed": [],
+      "segment_qoe": -192.2625,
+      "viewport_quality_kbps": 5000.0
+    },
+    {
+      "segment": 53,
+      "bandwidth_mbps": 0.081,
+      "buffer_level": 1.0,
+      "rebuf_time": 45.2962962962963,
+      "download_time": 46.2962962962963,
+      "high_quality_tiles": [
+        1,
+        0,
+        2,
+        6
+      ],
+      "actual_tiles_viewed": [
+        "0",
+        "6"
+      ],
+      "tiles_hit": [
+        "0",
+        "6"
+      ],
+      "tiles_missed": [],
+      "segment_qoe": -189.77407407407406,
+      "viewport_quality_kbps": 5000.0
+    },
+    {
+      "segment": 54,
+      "bandwidth_mbps": 0.083,
+      "buffer_level": 1.0,
+      "rebuf_time": 44.18072289156626,
+      "download_time": 45.18072289156626,
+      "high_quality_tiles": [
+        0,
+        1,
+        5,
+        6
+      ],
+      "actual_tiles_viewed": [
+        "6",
+        "0"
+      ],
+      "tiles_hit": [
+        "6",
+        "0"
+      ],
+      "tiles_missed": [],
+      "segment_qoe": -184.9771084337349,
+      "viewport_quality_kbps": 5000.0
+    },
+    {
+      "segment": 55,
+      "bandwidth_mbps": 0.083,
+      "buffer_level": 1.0,
+      "rebuf_time": 44.18072289156626,
+      "download_time": 45.18072289156626,
+      "high_quality_tiles": [
+        6,
+        0,
+        1,
+        5
+      ],
+      "actual_tiles_viewed": [
+        "0"
+      ],
+      "tiles_hit": [
+        "0"
+      ],
+      "tiles_missed": [],
+      "segment_qoe": -184.9771084337349,
+      "viewport_quality_kbps": 5000.0
+    },
+    {
+      "segment": 56,
+      "bandwidth_mbps": 0.084,
+      "buffer_level": 1.0,
+      "rebuf_time": 43.64285714285714,
+      "download_time": 44.64285714285714,
+      "high_quality_tiles": [
+        0,
+        1,
+        5,
+        6
+      ],
+      "actual_tiles_viewed": [
+        "0"
+      ],
+      "tiles_hit": [
+        "0"
+      ],
+      "tiles_missed": [],
+      "segment_qoe": -182.66428571428568,
+      "viewport_quality_kbps": 5000.0
+    },
+    {
+      "segment": 57,
+      "bandwidth_mbps": 0.086,
+      "buffer_level": 1.0,
+      "rebuf_time": 42.6046511627907,
+      "download_time": 43.6046511627907,
+      "high_quality_tiles": [
+        0,
+        1,
+        5,
+        6
+      ],
+      "actual_tiles_viewed": [
+        "0"
+      ],
+      "tiles_hit": [
+        "0"
+      ],
+      "tiles_missed": [],
+      "segment_qoe": -178.20000000000002,
+      "viewport_quality_kbps": 5000.0
+    },
+    {
+      "segment": 58,
+      "bandwidth_mbps": 0.087,
+      "buffer_level": 1.0,
+      "rebuf_time": 42.10344827586207,
+      "download_time": 43.10344827586207,
+      "high_quality_tiles": [
+        0,
+        1,
+        5,
+        6
+      ],
+      "actual_tiles_viewed": [
+        "0"
+      ],
+      "tiles_hit": [
+        "0"
+      ],
+      "tiles_missed": [],
+      "segment_qoe": -176.0448275862069,
+      "viewport_quality_kbps": 5000.0
+    },
+    {
+      "segment": 59,
+      "bandwidth_mbps": 0.089,
+      "buffer_level": 1.0,
+      "rebuf_time": 41.13483146067416,
+      "download_time": 42.13483146067416,
+      "high_quality_tiles": [
+        0,
+        1,
+        5,
+        6
+      ],
+      "actual_tiles_viewed": [
+        "0",
+        "5"
+      ],
+      "tiles_hit": [
+        "0",
+        "5"
+      ],
+      "tiles_missed": [],
+      "segment_qoe": -171.87977528089885,
+      "viewport_quality_kbps": 5000.0
+    },
+    {
+      "segment": 60,
+      "bandwidth_mbps": 0.007,
+      "buffer_level": 1.0,
+      "rebuf_time": 374.0,
+      "download_time": 375.0,
+      "high_quality_tiles": [
+        5,
+        0,
+        4,
+        6
+      ],
+      "actual_tiles_viewed": [
+        "5"
+      ],
+      "tiles_hit": [
+        "5"
+      ],
+      "tiles_missed": [],
+      "segment_qoe": -1603.2,
+      "viewport_quality_kbps": 5000.0
+    },
+    {
+      "segment": 61,
+      "bandwidth_mbps": 0.008,
+      "buffer_level": 1.0,
+      "rebuf_time": 374.0,
+      "download_time": 375.0,
+      "high_quality_tiles": [
+        5,
+        0,
+        4,
+        6
+      ],
+      "actual_tiles_viewed": [
+        "5",
+        "0"
+      ],
+      "tiles_hit": [
+        "5",
+        "0"
+      ],
+      "tiles_missed": [],
+      "segment_qoe": -1603.2,
+      "viewport_quality_kbps": 5000.0
+    },
+    {
+      "segment": 62,
+      "bandwidth_mbps": 0.008,
+      "buffer_level": 1.0,
+      "rebuf_time": 374.0,
+      "download_time": 375.0,
+      "high_quality_tiles": [
+        5,
+        0,
+        4,
+        6
+      ],
+      "actual_tiles_viewed": [
+        "0",
+        "5",
+        "11",
+        "6"
+      ],
+      "tiles_hit": [
+        "0",
+        "5",
+        "6"
+      ],
+      "tiles_missed": [
+        "11"
+      ],
+      "segment_qoe": -1606.325,
+      "viewport_quality_kbps": 3875.0
+    },
+    {
+      "segment": 63,
+      "bandwidth_mbps": 0.008,
+      "buffer_level": 1.0,
+      "rebuf_time": 374.0,
+      "download_time": 375.0,
+      "high_quality_tiles": [
+        0,
+        1,
+        5,
+        6
+      ],
+      "actual_tiles_viewed": [
+        "6"
+      ],
+      "tiles_hit": [
+        "6"
+      ],
+      "tiles_missed": [],
+      "segment_qoe": -1603.2,
+      "viewport_quality_kbps": 5000.0
+    },
+    {
+      "segment": 64,
+      "bandwidth_mbps": 0.008,
+      "buffer_level": 1.0,
+      "rebuf_time": 374.0,
+      "download_time": 375.0,
+      "high_quality_tiles": [
+        17,
+        6,
+        10,
+        11
+      ],
+      "actual_tiles_viewed": [
+        "6"
+      ],
+      "tiles_hit": [
+        "6"
+      ],
+      "tiles_missed": [],
+      "segment_qoe": -1603.2,
+      "viewport_quality_kbps": 5000.0
+    },
+    {
+      "segment": 65,
+      "bandwidth_mbps": 0.008,
+      "buffer_level": 1.0,
+      "rebuf_time": 374.0,
+      "download_time": 375.0,
+      "high_quality_tiles": [
+        12,
+        6,
+        7,
+        11
+      ],
+      "actual_tiles_viewed": [
+        "6",
+        "12"
+      ],
+      "tiles_hit": [
+        "6",
+        "12"
+      ],
+      "tiles_missed": [],
+      "segment_qoe": -1603.2,
+      "viewport_quality_kbps": 5000.0
+    },
+    {
+      "segment": 66,
+      "bandwidth_mbps": 0.008,
+      "buffer_level": 1.0,
+      "rebuf_time": 374.0,
+      "download_time": 375.0,
+      "high_quality_tiles": [
+        6,
+        0,
+        1,
+        5
+      ],
+      "actual_tiles_viewed": [
+        "12"
+      ],
+      "tiles_hit": [],
+      "tiles_missed": [
+        "12"
+      ],
+      "segment_qoe": -1609.7,
+      "viewport_quality_kbps": 500.0
+    },
+    {
+      "segment": 67,
+      "bandwidth_mbps": 0.014,
+      "buffer_level": 1.0,
+      "rebuf_time": 266.85714285714283,
+      "download_time": 267.85714285714283,
+      "high_quality_tiles": [
+        12,
+        6,
+        7,
+        11
+      ],
+      "actual_tiles_viewed": [
+        "12"
+      ],
+      "tiles_hit": [
+        "12"
+      ],
+      "tiles_missed": [],
+      "segment_qoe": -1142.485714285714,
+      "viewport_quality_kbps": 5000.0
+    },
+    {
+      "segment": 68,
+      "bandwidth_mbps": 0.014,
+      "buffer_level": 1.0,
+      "rebuf_time": 266.85714285714283,
+      "download_time": 267.85714285714283,
+      "high_quality_tiles": [
+        12,
+        6,
+        7,
+        11
+      ],
+      "actual_tiles_viewed": [
+        "12"
+      ],
+      "tiles_hit": [
+        "12"
+      ],
+      "tiles_missed": [],
+      "segment_qoe": -1142.485714285714,
+      "viewport_quality_kbps": 5000.0
+    },
+    {
+      "segment": 69,
+      "bandwidth_mbps": 0.014,
+      "buffer_level": 1.0,
+      "rebuf_time": 266.85714285714283,
+      "download_time": 267.85714285714283,
+      "high_quality_tiles": [
+        12,
+        6,
+        7,
+        11
+      ],
+      "actual_tiles_viewed": [
+        "12"
+      ],
+      "tiles_hit": [
+        "12"
+      ],
+      "tiles_missed": [],
+      "segment_qoe": -1142.485714285714,
+      "viewport_quality_kbps": 5000.0
+    }
+  ],
+  "approach": "predictive_with_content",
+  "user_trace_file": "Diving-2OzlksZBTiA_0_processed.csv",
+  "network_trace": "Verizon2",
+  "video_id": "Diving-2OzlksZBTiA"
+}
